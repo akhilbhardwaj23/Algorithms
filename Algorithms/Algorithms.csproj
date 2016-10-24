@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataStructures\Generic\Node.cs" />
+    <Compile Include="DataStructures\Generic\NodeList.cs" />
     <Compile Include="DataStructures\Node.cs" />
     <Compile Include="Problems\ArrayExtensions.cs" />
     <Compile Include="Problems\Fibonacci.cs" />

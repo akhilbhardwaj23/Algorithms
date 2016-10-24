@@ -157,14 +157,16 @@ namespace Algorithms
     /// <param name="n"></param>
     public static void SetZeros(int[][] matrix, int m, int n)
     {
+      // Keep track of rows and cols which have zero elements
       bool[] rows = new bool[m];
       bool[] cols = new bool[n];
+
 
       for (int i = 0; i < 5; i++)
       {
         for (int j = 0; j < 5; j++)
         {
-          if(matrix[i][j] == 0)
+          if (matrix[i][j] == 0)
           {
             rows[i] = true;
             cols[j] = true;
@@ -172,24 +174,14 @@ namespace Algorithms
         }
       }
 
+      //Set the all elements to zero for that row/col
       for (int i = 0; i < m; i++)
       {
-        if(rows[i])
+        for (int j = 0; j < n; j++)
         {
-          for (int j = 0; j < n; j++)
+          if (rows[i] || cols[j])
           {
             matrix[i][j] = 0;
-          }
-        }
-      }
-
-      for (int i = 0; i < m; i++)
-      {
-        if (cols[i])
-        {
-          for (int j = 0; j < n; j++)
-          {
-            matrix[j][i] = 0;
           }
         }
       }
