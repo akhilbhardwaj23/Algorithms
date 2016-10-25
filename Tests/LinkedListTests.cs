@@ -18,7 +18,7 @@ namespace Tests
       var list1 = BuildLinkedList();
       var list2 = BuildLinkedList();
 
-      Assert.AreEqual( 0, list1.CompareTo(list2));
+      Assert.AreEqual(0, list1.CompareTo(list2));
     }
 
     [TestMethod]
@@ -43,10 +43,30 @@ namespace Tests
       {
         head.AppendToTail(i);
       }
-
-    
-
       return head;
+    }
+
+    public void PrintList(Node head)
+    {
+      if (head == null)
+      {
+        Console.WriteLine("Empty List");
+        return;
+      }
+
+      var curr = head;
+      while (curr != null)
+      {
+        Console.Write(curr.Data.ToString() + " ");
+        curr = curr.Next;
+      }
+
+    }
+
+    public void Simulate()
+    {
+      var list = BuildLinkedList();
+      PrintList(list);
     }
   }
 }
