@@ -44,13 +44,12 @@ namespace Algorithms.Tests
     public void TestRemoveDuplicates()
     {
       var list = BuildLinkedList();
-      PrintList(list);
-
       //Add some duplicate items
       list.AppendToTail(1);
       list.AppendToTail(2);
-      
-      LinkedListProblems.RemoveDuplicates(list);
+      PrintList(list);
+      Console.WriteLine("----");
+      list = LinkedListProblems.RemoveDuplicates(list);
       PrintList(list);
     }
   }

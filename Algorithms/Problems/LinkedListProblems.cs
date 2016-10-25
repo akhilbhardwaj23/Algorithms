@@ -6,7 +6,7 @@ namespace Algorithms.Problems
   /// <summary>
   /// Class with a set of Linked list problems
   /// </summary>
-  class LinkedListProblems
+ public class LinkedListProblems
   {
     /// <summary>
     /// Remove duplicates from an unsorted linked list
@@ -15,11 +15,11 @@ namespace Algorithms.Problems
     public static Node RemoveDuplicates(Node head)
     {
       var curr = head;
+
       if (curr == null)
         return null;
 
-      bool[] items = new bool[head.Size];
-      int i = 0;
+      bool[] items = new bool[head.Count()];
 
       while (curr.Next != null)
       {
@@ -31,7 +31,16 @@ namespace Algorithms.Problems
         }
 
         items[curr.Data] = true;
+        curr = curr.Next;
       }
+
+      //Do this again for last item
+      if (curr.Next == null && items[curr.Data])
+      {
+        //This will delete the first occurance of the duplicate node
+        head.DeleteNode(head, curr.Data);
+      }
+
 
       return head;
     }

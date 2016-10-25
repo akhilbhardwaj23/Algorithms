@@ -8,7 +8,7 @@ namespace Algorithms
     static void Main(string[] args)
     {
       LinkedListTests test = new LinkedListTests();
-      test.Simulate();
+      test.TestRemoveDuplicates();
 
       Console.Read();
     }
