@@ -7,14 +7,10 @@ namespace Algorithms.DataStructures
   /// This is a specific node class represents a linked lists
   /// The generic version should be used to create trees and other data sturctures
   /// </summary>
-  public class Node
+  public class Node : IComparable<Node>
   {
     Node _next = null;
     int _data;
-
-    //Todo: Ideally, this should start with zero and constructor should be private
-    //would come back to this later.
-    int _size = 1;
 
     /// <summary>
     /// Default constructor
@@ -54,13 +50,6 @@ namespace Algorithms.DataStructures
       }
     }
 
-    public int Size
-    {
-      get
-      {
-        return _size;
-      }
-    }
 
     /// <summary>
     /// Appends a node to the list
@@ -73,7 +62,6 @@ namespace Algorithms.DataStructures
       while (n.Next != null)
       {
         n = n.Next;
-        _size++;
       }
 
       n.Next = end;
@@ -93,7 +81,7 @@ namespace Algorithms.DataStructures
         return head.Next;
       }
 
-      while (curr.Next != null)
+      while (curr != null && curr.Next != null)
       {
         if (curr.Next.Data == val)
         {
@@ -104,6 +92,60 @@ namespace Algorithms.DataStructures
       }
 
       return head;
+    }
+
+    public int Count()
+    {
+      int size = 0;
+      Node curr = this;
+      while (curr.Next != null)
+      {
+        size++;
+        curr = curr.Next;
+      }
+
+      return size;
+    }
+
+    public int CompareTo(Node n2)
+    {
+      int retVal = 0;
+      var curr = this;
+
+      bool equal = true;
+
+      if (curr.Next == null && n2.Next == null)
+      {
+        return retVal = (curr.Data == n2.Data) ? 0 : 1;
+      }
+
+      if (curr.Next == null && n2.Next != null)
+      {
+        return 1; //Not equal
+      }
+
+      if (curr.Next != null && n2.Next == null)
+      {
+        return 1; //Not equal
+      }
+
+      while (curr.Next != null)
+      {
+        if (curr.Data != n2.Data)
+        {
+          retVal = 1;
+          break;
+        }
+        curr = curr.Next;
+        n2 = n2.Next;
+      }
+
+      if (this.Next != null && curr.Next != null)
+      {
+        return 1;
+      }
+
+      return retVal;
     }
   }
 }

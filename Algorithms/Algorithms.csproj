@@ -57,7 +57,6 @@
     <Compile Include="Problems\Sorter.cs" />
     <Compile Include="Problems\Singleton.cs" />
     <Compile Include="Problems\StringOp.cs" />
-    <Compile Include="Tests\LinkedListTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
