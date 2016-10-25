@@ -75,7 +75,6 @@ namespace Algorithms.DataStructures
     public Node DeleteNode(Node head, int val)
     {
       Node curr = head;
-      bool skipped = true;
 
       if (head.Data == val)
       {
@@ -86,15 +85,7 @@ namespace Algorithms.DataStructures
       {
         if (curr.Next.Data == val)
         {
-          //Skip the first occurance
-          if (skipped)
-          {
-            skipped = false;
-          }
-          else
-          {
-            curr.Next = curr.Next.Next;
-          }
+          curr.Next = curr.Next.Next;
         }
 
         curr = curr.Next;
@@ -115,7 +106,7 @@ namespace Algorithms.DataStructures
 
       return size;
     }
-  
+
     public int CompareTo(Node n2)
     {
       int retVal = 0;
@@ -123,12 +114,12 @@ namespace Algorithms.DataStructures
 
       bool equal = true;
 
-      if(curr.Next == null && n2.Next == null)
+      if (curr.Next == null && n2.Next == null)
       {
         return retVal = (curr.Data == n2.Data) ? 0 : 1;
       }
 
-      if(curr.Next == null && n2.Next != null)
+      if (curr.Next == null && n2.Next != null)
       {
         return 1; //Not equal
       }
@@ -149,7 +140,7 @@ namespace Algorithms.DataStructures
         n2 = n2.Next;
       }
 
-      if(this.Next != null && curr.Next != null)
+      if (this.Next != null && curr.Next != null)
       {
         return 1;
       }

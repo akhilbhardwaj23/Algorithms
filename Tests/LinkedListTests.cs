@@ -35,6 +35,28 @@ namespace Tests
       Assert.AreEqual(0, list1.CompareTo(list2));
     }
 
+    [TestMethod]
+    public void TestRemoveDuplicatesWithoutBuffer()
+    {
+      var list1 = BuildLinkedList();
+      var list2 = BuildLinkedList();
+
+      list2.AppendToTail(1);
+      list2.AppendToTail(2);
+
+      list2 = LinkedListProblems.RemoveDuplicatesWithoutBuffer(list2);
+
+      Assert.AreEqual(0, list1.CompareTo(list2));
+    }
+
+    [TestMethod]
+    public void TestFindNthNodeFromEnd()
+    {
+      var list1 = BuildLinkedList();
+      var val = LinkedListProblems.FindNthNodeFromEnd(list1, 2).Data;
+      Assert.AreEqual(8, val);
+
+    }
     public Node BuildLinkedList()
     {
       Node head = new Node(0);
