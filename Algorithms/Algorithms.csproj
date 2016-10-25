@@ -43,12 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataStructures\Generic\Node.cs" />
+    <Compile Include="DataStructures\Generic\GenericNode.cs" />
     <Compile Include="DataStructures\Generic\NodeList.cs" />
     <Compile Include="DataStructures\Node.cs" />
     <Compile Include="Problems\ArrayExtensions.cs" />
     <Compile Include="Problems\Fibonacci.cs" />
     <Compile Include="DataStructures\HashSet.cs" />
+    <Compile Include="Problems\LinkedListProblems.cs" />
     <Compile Include="Problems\Matrix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Problems\Sorter.cs" />
     <Compile Include="Problems\Singleton.cs" />
     <Compile Include="Problems\StringOp.cs" />
+    <Compile Include="Tests\LinkedListTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

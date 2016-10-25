@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.DataStructures
+namespace Algorithms.DataStructures.Generics
 {
-  public class Node<T>
+  public class GenericNode<T>
   {
     #region Private Members
     private T _data;
@@ -14,9 +14,9 @@ namespace Algorithms.DataStructures
     #endregion
 
     #region Public Constructors
-    public Node() {}
-    public Node(T data) : this(data, null) { }
-    public Node(T data, NodeList<T> neighbors)
+    public GenericNode() {}
+    public GenericNode(T data) : this(data, null) { }
+    public GenericNode(T data, NodeList<T> neighbors)
     {
       this._data = data;
       this._neighbors = neighbors;

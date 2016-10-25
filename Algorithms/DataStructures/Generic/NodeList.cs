@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.DataStructures
+namespace Algorithms.DataStructures.Generics
 {
-  public class NodeList<T> : Collection<Node<T>>
+  public class NodeList<T> : Collection<GenericNode<T>>
   {
     #region Public Constructors
     public NodeList() : base() { }
@@ -16,15 +16,15 @@ namespace Algorithms.DataStructures
     {
       for (int i = 0; i < initialSize; i++)
       {
-        base.Items.Add(default(Node<T>));
+        base.Items.Add(default(GenericNode<T>));
       }
     }
     #endregion
 
     #region Public Methods
-    public Node<T> FindByValue(T value)
+    public GenericNode<T> FindByValue(T value)
     {
-      foreach(Node<T> node in Items)
+      foreach(GenericNode<T> node in Items)
       {
         if (node.Value.Equals(value))
           return node;
