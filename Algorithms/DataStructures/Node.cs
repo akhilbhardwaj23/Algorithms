@@ -16,6 +16,10 @@ namespace Algorithms.DataStructures
     Node _next = null;
     int _data;
 
+    //Todo: Ideally, this should start with zero and constructor should be private
+    //would come back to this later.
+    int _size = 1;
+
     /// <summary>
     /// Default constructor
     /// </summary>
@@ -54,6 +58,14 @@ namespace Algorithms.DataStructures
       }
     }
 
+    public int Size
+    {
+      get
+      {
+        return _size;
+      }
+    }
+
     /// <summary>
     /// Appends a node to the list
     /// </summary>
@@ -65,6 +77,7 @@ namespace Algorithms.DataStructures
       while (n.Next != null)
       {
         n = n.Next;
+        _size++;
       }
 
       n.Next = end;
@@ -86,7 +99,7 @@ namespace Algorithms.DataStructures
 
       while (curr.Next != null)
       {
-        if(curr.Next.Data == val )
+        if (curr.Next.Data == val)
         {
           curr.Next = curr.Next.Next;
         }

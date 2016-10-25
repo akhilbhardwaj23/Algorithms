@@ -8,19 +8,13 @@ namespace Algorithms.Tests
     public Node BuildLinkedList()
     {
       Node head = new Node(0);
-      Node prev = head;
 
       for (int i = 1; i < 10; i++)
       {
-        Node item = new Node(i);
-        prev.Next = item;
-
-        //Move to the next item
-        prev = item;
+        head.AppendToTail(i);
       }
 
       return head;
-
     }
 
     public void PrintList(Node head)
