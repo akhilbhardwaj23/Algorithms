@@ -1,5 +1,6 @@
 ﻿using System;
 using Algorithms.DataStructures;
+using Algorithms.Problems;
 
 namespace Algorithms.Tests
 {
@@ -38,6 +39,19 @@ namespace Algorithms.Tests
     {
       var list = BuildLinkedList();
      PrintList(list);
+    }
+
+    public void TestRemoveDuplicates()
+    {
+      var list = BuildLinkedList();
+      PrintList(list);
+
+      //Add some duplicate items
+      list.AppendToTail(1);
+      list.AppendToTail(2);
+      
+      LinkedListProblems.RemoveDuplicates(list);
+      PrintList(list);
     }
   }
 }
