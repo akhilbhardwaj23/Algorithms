@@ -68,6 +68,24 @@ namespace Algorithms.DataStructures
     }
 
     /// <summary>
+    /// Another append which returns the head
+    /// </summary>
+    /// <param name="d"></param>
+    /// <returns></returns>
+    public Node Append(int d)
+    {
+      Node end = new Node(d);
+      Node n = this;
+      while (n.Next != null)
+      {
+        n = n.Next;
+      }
+
+      n.Next = end;
+      return this;
+    }
+
+    /// <summary>
     /// Deletes a node from the list
     /// </summary>
     /// <param name="head"></param>
