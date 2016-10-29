@@ -46,6 +46,9 @@
     <Compile Include="DataStructures\Generic\GenericNode.cs" />
     <Compile Include="DataStructures\Generic\NodeList.cs" />
     <Compile Include="DataStructures\Node.cs" />
+    <Compile Include="DataStructures\Queue.cs" />
+    <Compile Include="DataStructures\Stack.cs" />
+    <Compile Include="DataStructures\StackStore.cs" />
     <Compile Include="Problems\ArrayExtensions.cs" />
     <Compile Include="Problems\Fibonacci.cs" />
     <Compile Include="DataStructures\HashSet.cs" />
