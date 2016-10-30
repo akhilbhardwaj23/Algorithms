@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.DataStructures
 {
-  public class Stack
+  public class StackListImpl
   {
     private Node top;
     public int Pop()
