@@ -1,5 +1,4 @@
 ﻿using System;
-using Algorithms;
 using Algorithms.DataStructures;
 using Algorithms.Problems;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -57,6 +56,71 @@ namespace Tests
       Assert.AreEqual(8, val);
 
     }
+
+    [TestMethod]
+    public void TestDeleteNode()
+    {
+      var list = BuildLinkedList();
+
+      var nodeTobeDeleted = list.Next.Next.Next; //the node with value 4
+
+      Assert.AreEqual(2, list.Next.Next.Data);
+      Assert.AreEqual(3, list.Next.Next.Next.Data);
+
+      LinkedListProblems.DeleteNode(nodeTobeDeleted);
+
+      Assert.AreEqual(2, list.Next.Next.Data);
+      Assert.AreEqual(4, list.Next.Next.Next.Data);
+    }
+
+    [TestMethod]
+    public void TestCycleStartNode()
+    {
+      var list = BuildLinkedList();
+
+      var curr = list;
+      var start = list;
+
+      //Find the last node
+      while (curr.Next != null)
+      {
+        curr = curr.Next;
+      }
+
+      //Find an arbitary node
+      for (int i = 0; i < 9; i++)
+      {
+        start = start.Next;
+        if (start.Data == 5)
+          break;
+      }
+
+      // Create a cycle
+      curr.Next = start;
+
+      var node = LinkedListProblems.FindStartNodeOfCircularList(list);
+      Assert.AreEqual(start.Data, node.Data);
+    }
+
+    [TestMethod]
+    public void TestNoCycle()
+    {
+      var list = BuildLinkedList();
+      var node = LinkedListProblems.FindStartNodeOfCircularList(list);
+      Assert.AreEqual(null, node);
+    }
+
+    [TestMethod]
+    public void TestListSum()
+    {
+      var list1 = new Node(9).Append(9).Append(9);
+      var list2 = new Node(9).Append(9).Append(9);
+
+      var sum = new Node(8).Append(9).Append(9).Append(1);
+      var calcsum = LinkedListProblems.ListSum(list1, list2, 0);
+      Assert.AreEqual(0, calcsum.CompareTo(sum));
+    }
+
     public Node BuildLinkedList()
     {
       Node head = new Node(0);

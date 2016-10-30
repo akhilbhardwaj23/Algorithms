@@ -43,14 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataStructures\DynamicStack.cs" />
     <Compile Include="DataStructures\Generic\GenericNode.cs" />
     <Compile Include="DataStructures\Generic\NodeList.cs" />
+    <Compile Include="DataStructures\Generic\Stack.cs" />
     <Compile Include="DataStructures\Node.cs" />
+    <Compile Include="DataStructures\Queue.cs" />
+    <Compile Include="DataStructures\QueueOfStacks.cs" />
+    <Compile Include="DataStructures\StackListImpl.cs" />
+    <Compile Include="DataStructures\StackStore.cs" />
     <Compile Include="Problems\ArrayExtensions.cs" />
     <Compile Include="Problems\Fibonacci.cs" />
     <Compile Include="DataStructures\HashSet.cs" />
     <Compile Include="Problems\LinkedListProblems.cs" />
     <Compile Include="Problems\Matrix.cs" />
+    <Compile Include="Problems\StackAndQueue.cs" />
+    <Compile Include="Problems\TowerOfHanoi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Problems\Random.cs" />
