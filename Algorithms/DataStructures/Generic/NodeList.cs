@@ -26,7 +26,7 @@ namespace Algorithms.DataStructures.Generics
     {
       foreach(GenericNode<T> node in Items)
       {
-        if (node.Value.Equals(value))
+        if (node.Data.Equals(value))
           return node;
       }
 

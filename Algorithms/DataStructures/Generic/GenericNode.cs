@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithms.DataStructures.Generics
 {
-  public class GenericNode<T>
+  public class GenericNode<T> : IComparable<T>
   {
     #region Private Members
     private T _data;
@@ -14,7 +14,7 @@ namespace Algorithms.DataStructures.Generics
     #endregion
 
     #region Public Constructors
-    public GenericNode() {}
+    public GenericNode() { }
     public GenericNode(T data) : this(data, null) { }
     public GenericNode(T data, NodeList<T> neighbors)
     {
@@ -24,7 +24,7 @@ namespace Algorithms.DataStructures.Generics
 
     #endregion
     #region Public Properties
-    public T Value
+    public T Data
     {
       get
       {
@@ -37,5 +37,14 @@ namespace Algorithms.DataStructures.Generics
     }
     #endregion
 
+    public int CompareTo(T t)
+    {
+      var comparer = Comparer<T>.Default;
+
+      if (t.GetType() != GetType())
+        return -1;
+
+      return comparer.Compare(this._data, t);
+    }
   }
 }

@@ -121,6 +121,16 @@ namespace Tests
       Assert.AreEqual(0, calcsum.CompareTo(sum));
     }
 
+    [TestMethod]
+
+    public void TestSeggregateOddEven()
+    {
+      var list = new Node(5).Append(1).Append(2).Append(3).Append(4).Append(6);
+      var list1 = new Node(2).Append(4).Append(6).Append(5).Append(1).Append(3);
+      var list2 = LinkedListProblems.SeggregateOddEven(list);
+      Assert.AreEqual(0, list1.CompareTo(list2));
+    }
+
     public Node BuildLinkedList()
     {
       Node head = new Node(0);

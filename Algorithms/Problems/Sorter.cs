@@ -135,5 +135,88 @@ namespace Algorithms
 
       return n;
     }
+
+    public int[] MergeBtoA(int[] A, int[] B)
+    {
+      if (A.Length < B.Length)
+        throw new ArgumentOutOfRangeException();
+
+      int i = 0;
+      int j = 0;
+
+
+      while (i < A.Length)
+      {
+        if (A[i] == -1)
+        {
+          A[i] = B[j];
+          j++;
+        }
+        else if (A[i] > B[j])
+        {
+          var temp = A[i];
+          A[i] = B[j];
+          B[j] = temp;
+
+          int k = 0;
+          while (k < B.Length - 1 && B[k] > B[k + 1])
+          {
+            //swap
+            var temp1 = B[k + 1];
+            B[k + 1] = B[k];
+            B[k] = temp1;
+
+            k++;
+          }
+        }
+
+        i++;
+      }
+
+      return A;
+    }
+
+    public int[] MergeBackwards(int[] A, int[] B)
+    {
+      if (A.Length < B.Length)
+        throw new ArgumentOutOfRangeException();
+
+      int k = 0;
+
+      for (k = 0; k < A.Length; k++)
+      {
+        if (A[k] == -1)
+          break;
+      }
+
+      int j = B.Length -1;
+      int i = k - 1;
+
+      k = A.Length -1;
+
+      while (i >= 0 && j >= 0)
+      {
+        if (A[i] >= B[j])
+        {
+          A[k] = A[i];
+          i--;
+        }
+        else
+        {
+          A[k] = B[j];
+          j--;
+        }
+        k--;
+      }
+
+      while(j >= 0)
+      {
+        A[k] = B[j];
+        j--;
+        k--;
+      }
+
+      return A;
+    }
   }
 }

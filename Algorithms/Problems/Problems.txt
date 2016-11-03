@@ -1,0 +1,3 @@
+﻿Seggregate odd and even numbers in a linked list
+Check for balance of parenthesis
+Stock problem
