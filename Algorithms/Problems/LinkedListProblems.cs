@@ -168,6 +168,77 @@ namespace Algorithms.Problems
     }
 
     /// <summary>
+    /// Seggregates all the odd and even nodes together
+    /// </summary>
+    /// <param name="head"></param>
+    /// <returns></returns>
+    public static Node SeggregateOddEven(Node head)
+    {
+      if(head == null)
+      {
+        throw new ArgumentNullException();
+      }
+
+      Node end = head;
+
+      //go to last node
+      while(end.Next != null)
+      {
+        end = end.Next;
+      }
+
+      var temp = head;
+      Node prev = null;
+      var pivot = end;
+
+      while(temp != end)
+      {
+
+        var temp1 = temp.Next;
+        //odd Node, move after pivot
+        if (temp.Data % 2 != 0)
+        {
+          //If the current node being moved is odd then move the head to next node
+          if(temp == head)
+          {
+            head = temp.Next;
+          }
+
+          //If the current node is being moved, assign the previous nodes' next pointer to the next node
+          if(prev != null)
+          {
+            prev.Next = temp.Next;
+          }
+
+          //Set the current node at the next node of odd node
+          pivot.Next = temp;
+
+          //remove old references, avoid cycle
+          pivot.Next.Next = null;
+
+          //move the pivot ahead
+          pivot = pivot.Next;
+        }
+
+        prev = temp;
+        temp = temp1;
+      }
+
+      //What if the earlier end was odd ?
+      if (temp == end)
+      {
+        if (temp.Data % 2 != 0)
+        {
+          prev.Next = temp.Next;
+          pivot.Next = temp;
+          pivot.Next.Next = null;
+        }
+      }
+
+      return head;
+    }
+
+    /// <summary>
     /// find the start of a cycle in circular linked list
     /// </summary>
     /// <param name="n"></param>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Algorithms.Problems
 {
@@ -27,6 +28,54 @@ namespace Algorithms.Problems
 
       SortStack(s1);
       return s2;
+    }
+
+    public bool AreParenthesisBalanced(string str)
+    {
+      Stack<char> stack = new Stack<char>();
+
+      char[] c = str.ToCharArray();
+
+      Dictionary<char, int> h = new Dictionary<char, int>();
+
+      h.Add('[', 1);
+      h.Add('{', 2);
+      h.Add('(', 3);
+
+      Dictionary<char, int> j = new Dictionary<char, int>();
+      j.Add('[', ']');
+      j.Add('{', '}');
+      j.Add('(', ')');
+
+      for (int i= 0; i < c.Length; i++)
+      {
+        if(c[i] == '[' || c[i] == '{' || c[i] == '(')
+        {
+          if (stack.Count > 0)
+          {
+            if (h[stack.Peek()] > h[c[i]])
+            {
+              //incorrect order
+              return false;
+            }
+          }
+
+          stack.Push(c[i]);
+        }
+        if (c[i] == ']' || c[i] == '}' || c[i] == ')')
+        {
+          if (j[stack.Peek()] == c[i])
+          {
+            stack.Pop();
+          }
+          else
+          {
+            return false;
+          }
+        }
+      }
+
+      return stack.Count == 0;
     }
   }
 }

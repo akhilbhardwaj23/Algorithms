@@ -56,6 +56,34 @@ namespace Tests
       Assert.AreEqual(10, s2.Peek());
     }
 
+    [TestMethod]
+    public void TestAreParenthesisBalanced()
+    {
+      //true
+      string testString = "[{()}]";
+
+      //false
+      string testString1 = "[{{()}]";
+
+      //false
+      string testString2 = "{[{()}]}";
+
+      //true
+      string testString3 = "[{{((()))}}]";
+
+      //false
+      string testString4 = "[}{]";
+
+      StackAndQueue s1 = new StackAndQueue();
+
+      Assert.AreEqual(true, s1.AreParenthesisBalanced(testString));
+      Assert.AreEqual(false, s1.AreParenthesisBalanced(testString1));
+      Assert.AreEqual(false, s1.AreParenthesisBalanced(testString2));
+      Assert.AreEqual(true, s1.AreParenthesisBalanced(testString3));
+      Assert.AreEqual(false, s1.AreParenthesisBalanced(testString4));
+    }
+
+
     public DynamicStack CreateSack()
     {
       //limiting total stacks to 3;
