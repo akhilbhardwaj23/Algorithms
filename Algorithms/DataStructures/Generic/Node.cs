@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms.DataStructures.Generics
+namespace Algorithms.DataStructures.Generic
 {
-  public class GenericNode<T> : IComparable<T>
+  public class Node<T> : IComparable<T>
   {
     #region Private Members
     private T _data;
@@ -14,9 +14,9 @@ namespace Algorithms.DataStructures.Generics
     #endregion
 
     #region Public Constructors
-    public GenericNode() { }
-    public GenericNode(T data) : this(data, null) { }
-    public GenericNode(T data, NodeList<T> neighbors)
+    public Node() { }
+    public Node(T data) : this(data, null) { }
+    public Node(T data, NodeList<T> neighbors)
     {
       this._data = data;
       this._neighbors = neighbors;
@@ -24,7 +24,7 @@ namespace Algorithms.DataStructures.Generics
 
     #endregion
     #region Public Properties
-    public T Data
+    public T Value
     {
       get
       {
@@ -35,6 +35,17 @@ namespace Algorithms.DataStructures.Generics
         _data = value;
       }
     }
+
+    #endregion
+
+    #region Protected Properties
+
+    protected NodeList<T> Neighbours
+    {
+      get { return _neighbors; }
+      set { _neighbors = value; }
+    }
+
     #endregion
 
     public int CompareTo(T t)

@@ -45,7 +45,8 @@
   <ItemGroup>
     <Compile Include="DataStructures\BinaryTree.cs" />
     <Compile Include="DataStructures\DynamicStack.cs" />
-    <Compile Include="DataStructures\Generic\GenericNode.cs" />
+    <Compile Include="DataStructures\Generic\BinaryTreeNode.cs" />
+    <Compile Include="DataStructures\Generic\Node.cs" />
     <Compile Include="DataStructures\Generic\NodeList.cs" />
     <Compile Include="DataStructures\Generic\Stack.cs" />
     <Compile Include="DataStructures\Node.cs" />
